@@ -1,3 +1,7 @@
-session 1
-session 2
-etc
+#Session 1:
+- For this session I need to begin designing the backend of the application. The SQLite database will need to hold all the relevant information that will be used across the system, crucially in the Quiz System where the user's performance will need to be used in the question selection algorithm that specifically targets their weakest targets and aims for improvement of performance.
+- Once I begin designing the question selection algorithm I will have a clearer idea of exactly what information is needed from the user to accurately and efficiently provide them with questions that will prove the most effective in improving their knowledge and results. Therefore, following my design plan, I should setup the database with the relevant information that I require up to this stage, and design it so that later in production the other needed fields can be addede to the database.
+- First, I need to research database design. I began with the simple article from Geeks for Geeks: "https://www.geeksforgeeks.org/dbms/database-design-ultimate-guide/"
+- Requirements Analysis: I need two primary things, 1. User Account information, allowing them to login and logoff, and allowing an anchor for the user information to be stored in other tables, 2. Performance Information, which provides the details from the user's quiz activity that will be used in the question selection algorithm.
+- I don't yet know the exact requirements for the performance information, so to begin with I will outline only what I need for the User Account Information.
+
