@@ -17,7 +17,7 @@ public class dbSetup {
     private void createsUsersTable() throws SQLException {
         String SQL = """
                 CREATE TABLE IF NOT EXISTS users (
-                userid INTEGER PRIMARY KEY,
+                user_id INTEGER PRIMARY KEY,
                 username TEXT NOT NULL,
                 hashed_passcode TEXT NOT NULL,
                 is_active BOOLEAN NOT NULL DEFAULT FALSE
