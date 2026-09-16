@@ -5,5 +5,12 @@
 - Requirements Analysis: I need two primary things, 1. User Account information, allowing them to login and logoff, and allowing an anchor for the user information to be stored in other tables, 2. Performance Information, which provides the details from the user's quiz activity that will be used in the question selection algorithm.
 - I don't yet know the exact requirements for the performance information, so to begin with I will outline only what I need for the User Account Information with an Entity Relationship Diagram.
 - I should bear in mind and make performance testing plans to ensure the database works correctly throughout the project.
+- [![alt text](<Image Bank/Users_table_ERD.png>)]
 - Once I'd designed the ERD, I went reminded myself of how to write the code to setup the database connection and create tables using the sqlite java tutorial page: "https://www.sqlitetutorial.net/sqlite-java/"
 
+#Session 2:
+- After some thought I realised that I would also need to store my question bank and all relevant info for the questions as well as the performance data and user account data. This will be important as It will also hold information on the topic the question falls under, which will be needed with the topic selection option.
+- For the Question Bank table, I thought that I would be able to more clearly outline what information will be needed even at this stage without having written any questions. To do this, I referred to my analysis and came up with the following required information: 1. Question topic, 2. The Question Itself, 3. The Answer Options, 4. The Correct Answer, 5. Question Feedback. These can be changed or added to at a later date, but for now these are satisfactory.
+- Upon writing the code for the question bank table, I realised that SQLite did not have a native array type, which i'd need to store the answer options, so I had to figure a work around for this. To resolve, I decided to create another table solely to store the answer options. Each row would be a different option, and it would be tied to the question via a question_id column, which would be a primary key in the question bank table, and a foreign key in the answer options table. I decided to add a column for the answer option index, and for the answer option itself.
+- Written the tables, need to test them at home with DB Browser for SQLite.
+- Next, I will the application will need to be able to interact with the database. User actions from the frontend should be able to retrieve from the database, write to it, and any other needed operations. 

@@ -33,6 +33,43 @@ public class dbSetup {
         }
     }
 
-    
+    private void createQuestionBankTable()  throws SQLException {
+        String SQL = """
+                CREATE TABLE IF NOT EXISTS question_bank (
+                question_id INTEGER PRIMARY KEY,
+                question_topic TEXT NOT NULL,
+                question TEXT NOT NULL,
+                answer_options 
+                feedback TEXT NOT NULL
+                )
+                """;
+
+        try (Connection connection = DriverManager.getConnection(URL); 
+        Statement statement = connection.createStatement() ){
+            statement.execute(SQL);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+
+    private void createAnswerOptionsTable() throws SQLException {
+        String SQL = """
+                CREATE TABLE IF NOT EXISTS answer_options (
+                question_id INTEGER,
+                answer_option_index INTEGER,
+                answer_option TEXT NOT NULL
+                FOREIGN KEY (question_id) REFERENCES question_bank (question_id)
+                )
+                """;
+
+        try (Connection connection = DriverManager.getConnection(URL);
+        Statement statement = connection.createStatement() ){
+            statement.execute(SQL);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
 }
 
