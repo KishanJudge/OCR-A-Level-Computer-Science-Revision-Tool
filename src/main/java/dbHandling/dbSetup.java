@@ -12,6 +12,8 @@ public class dbSetup {
     //create all our tables
     public dbSetup() throws SQLException {
         createsUsersTable();
+        createQuestionBankTable();
+        createAnswerOptionsTable();
     }
 
     private void createsUsersTable() throws SQLException {
@@ -71,5 +73,7 @@ public class dbSetup {
             System.err.println(e.getMessage());
         }
     }
+
+    //private void createPerformanceInformationTable() throws SQLException {}
 }
 
