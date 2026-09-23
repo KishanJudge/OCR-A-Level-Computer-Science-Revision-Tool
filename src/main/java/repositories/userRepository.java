@@ -19,11 +19,9 @@ public class userRepository {
             
         try (Connection connection = DriverManager.getConnection(URL);
         PreparedStatement statement = connection.prepareStatement(SQL)) {
-            for (int i = 0; i < 4; i++) {
                 statement.setString(1, givenUsername);
                 statement.setString(2, givenHashedPasscode);
                 statement.setBoolean(3, true);
-            }
         }
     }
 }
