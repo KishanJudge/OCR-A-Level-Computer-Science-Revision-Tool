@@ -17,3 +17,7 @@
 
 #Session 3:
 - Today I am starting with creating the repository layer, I will begin with the user repository, and will need to define basic functions such as creating a new user, editing user information, deleting users and such. I reminded myself of correct structure using this webpage: "https://softwaresystemdesign.com/low-level-design/layered-code-structure/"
+
+#Session 4:
+- back to the user repository, finished creating all functions i can predict that I will need at this stage, that includes adding users, get user information, deleting users, and editing user information.
+- Now to the user Service
