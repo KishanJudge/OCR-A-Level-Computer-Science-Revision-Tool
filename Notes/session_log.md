@@ -20,4 +20,25 @@
 
 #Session 4:
 - back to the user repository, finished creating all functions i can predict that I will need at this stage, that includes adding users, get user information, deleting users, and editing user information.
+- momentarily forgot to write the catch blocks, but corrected it.
 - Now to the user Service
+
+#Session 5:
+- working on the user service layers, ironing out which functions I will need. need to check the given username against rules, same for passcode, and functions to insert the user and hash the passcode. I am then need to iron out the rules for the username: 1 min chars, 53 max chars, and a list of allowed and unallowed chars.
+- when writing the user rules I wanted to return multiple details after the function has run: a boolean showing whether the test was a success, and a test message with the result. to do this i had to create another class object called returnMessage which would house both elements.
+- when writing the illegal chars list i had an issue with the '\' symbol, it caused an invalid  characeter constant error, which i may want to further investigate and fix.
+- had an issue using the .contains function on the given username, I wanted to check that the username didn't contain any of the illegal characters, yet I it would not work on the char array or the string array, so I instead put it into a for loop to check each individual string in the array. I'm sure there must be a function that allows you to check the entire array, or perhaps I was using it wrong, I will investigate and potentially optimise later.
+- Incorrect code:
+        char[] illegalChars = {"£", "$", "%", "^", "&", "*", "+", "=", "{", "}", "[", "]", ";", ":", "/", "<", ">", "\" "|", "`", "¬"};
+
+        // '\' caused an error: find a fix, for now exclude it from the illegal chars list
+
+        if (givenUsername.length() < 1 || givenUsername.length() > 53) {
+            returnMessage.setMessage("username must be between 1 and 50 Characters");
+            returnMessage.setResult(false);
+            return returnMessage;
+        } 
+        else if (givenUsername.contains(illegalChars)) {
+
+        }
+- began to loayout passcode rules but ran out of time, next sesh i may get onto the hashing so i will need to brush up on SHA-256: "https://www.baeldung.com/sha-256-hashing-java"
