@@ -42,3 +42,9 @@
 
         }
 - began to loayout passcode rules but ran out of time, next sesh i may get onto the hashing so i will need to brush up on SHA-256: "https://www.baeldung.com/sha-256-hashing-java"
+
+
+#Session 6:
+- reviewing my code from previous sessions I realised I will also need to include a function to delete users in the event that users may wish to terminate their account.
+- reworked my service layer as I believe I had written it incorrectly. I will have to find some code to review to get a better understanding but I believe I have it correct now. the confusion was with the breakdown of verifying the user inpur for the username and adding the user. I had mistakelnly believed I had erred at first and rearranged it so that the user's inserted username was verified within the same function that called the function from the userRepository to add it to the database. Upon resolution of the confusion, I have correctly rearrranged things to be properly decomposed so that the user's inputted information is verified in seperate functions to where the user is added to the database.
+- couldn't figure out how to check if a character is a digit or not. turns out reloading my codespace fixed the error? who knows.

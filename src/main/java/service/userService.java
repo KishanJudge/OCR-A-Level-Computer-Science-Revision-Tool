@@ -1,5 +1,8 @@
 package service;
+import java.sql.SQLException;
+
 import models.returnMessage;
+import repositories.userRepository;
 public class userService {
 
     /*make an account
@@ -8,15 +11,15 @@ public class userService {
         - hash the password
         - insert user into db
     */
+    private userRepository userRepo = new userRepository();
 
-    public static returnMessage checkUsername(String givenUsername) {
+    public returnMessage checkUsername(String givenUsername) {
         /*
-        min chars: 1
-        max chars: 53
-        illegal chars: £$"%^&*+={}[];:/<>\|`¬
-        legal chars: -_()#@'!?.
+            min chars: 1
+            max chars: 53
+            illegal chars: £$"%^&*+={}[];:/<>\|`¬
+            legal chars: -_()#@'!?.
         */
-
         returnMessage returnMessage = new returnMessage();
         String[] illegalChars = {"£", "$", "%", "^", "&", "*", "+", "=", "{", "}", "[", "]", ";", ":", "/", "<", ">", "|", "`", "¬"};
 
@@ -42,18 +45,56 @@ public class userService {
         return returnMessage;
     }
 
-    public static void checkGivenPasscode() {
+    public returnMessage insertUser(String givenUsername, String givenHashedPasscode) {
+   
+        returnMessage returnMessage = new returnMessage();
+
+        try {
+            userRepo.addNewUser(givenUsername, givenHashedPasscode);
+            returnMessage.setMessage("user successfully added");
+            returnMessage.setResult(true);
+            return returnMessage;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            returnMessage.setMessage("error adding user");
+            returnMessage.setResult(false);
+            return returnMessage;
+        }
+
+    }
+
+    public returnMessage checkGivenPasscode(String givenTypedPasscode) {
         /*
         passcode rules:
             - min chars: 8
             - max chars: 64
-
+            - must contain nums, letters, and special chars
         */
+
+        returnMessage returnMessage = new returnMessage();
+        validCheck = 0;
+
+        if (givenTypedPasscode.length() < 8 || givenTypedPasscode.length() > 64) {
+            returnMessage.setMessage("passcode must be between 8 and 64 chars");
+            returnMessage.setResult(false);
+            return returnMessage;
+        }
+        for (int i = 0; i < 3; i++) {
+            for (char ch : givenTypedPasscode.toCharArray()) {
+            if (String.valueOf(ch).isDigit()) {
+                validCheck ++;
+                break;
+            }
+        }
+        }
+
+        returnMessage.setMessage("given passcode is valid");
+        returnMessage.setResult(true);
+        return returnMessage;
     }
 
-    public static void insertUser(String username, String hashedPasscode) {
 
-    }
 
     public static void hashPasscode(String givenPasscode) {
 

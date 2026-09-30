@@ -9,7 +9,7 @@ public class userRepository {
 
     private static final String URL = "jdbc:sqlite:database/userInfo.db";
 
-    public static void addNewUser(
+    public void addNewUser(
         String givenUsername, String givenHashedPasscode ) throws SQLException {
             //Insert SQL statement
         String SQL = """
