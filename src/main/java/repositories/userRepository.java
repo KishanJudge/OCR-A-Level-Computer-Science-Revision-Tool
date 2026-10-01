@@ -31,7 +31,7 @@ public class userRepository {
         }
     }
 
-    public static void updateUser(
+    public void updateUser(
         String givenUsername, String givenHashedPasscode, 
         int givenIsActive, int givenUserID) throws SQLException {
         //Update SQL statement
@@ -56,7 +56,7 @@ public class userRepository {
         }
     }
 
-    public static void deleteUser(
+    public void deleteUser(
         int givenUserID) throws SQLException {
             //delete sql statement
             String SQL = """
@@ -75,7 +75,7 @@ public class userRepository {
         }
     }
 
-    public static void getUser(
+    public void getUser(
         int givenUserID) throws SQLException {
         String SQL = """
                 SELECT * FROM users

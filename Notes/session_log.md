@@ -48,3 +48,9 @@
 - reviewing my code from previous sessions I realised I will also need to include a function to delete users in the event that users may wish to terminate their account.
 - reworked my service layer as I believe I had written it incorrectly. I will have to find some code to review to get a better understanding but I believe I have it correct now. the confusion was with the breakdown of verifying the user inpur for the username and adding the user. I had mistakelnly believed I had erred at first and rearranged it so that the user's inserted username was verified within the same function that called the function from the userRepository to add it to the database. Upon resolution of the confusion, I have correctly rearrranged things to be properly decomposed so that the user's inputted information is verified in seperate functions to where the user is added to the database.
 - couldn't figure out how to check if a character is a digit or not. turns out reloading my codespace fixed the error? who knows.
+
+#Session 7:
+- finished the passcode rules, moving on to hashing a passcode. will be using SHA-256 as has strong security and is an efficent algorithm. 
+- fixed this error: "https://codingtechroom.com/question/handle-implicit-super-constructor-exceptions" by putting 'https://codingtechroom.com/question/handle-implicit-super-constructor-exceptions' inside of a method which throws NoSuchAlgorithmException
+- explain in design why we must hash passcodes
+- user service completed for now as far as we can tell. I believe that will be the end of iteration 1 and the controller can be done seperately. or perhaps as part of further iterations 1b etc. for now we should write up. make our testing plan, test, then fix any errors.
