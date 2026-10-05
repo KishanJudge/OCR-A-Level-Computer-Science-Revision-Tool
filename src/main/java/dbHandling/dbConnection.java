@@ -6,12 +6,13 @@ import java.sql.SQLException;
 
 public class dbConnection {
 
-    //db URL
+    //URL that links to database file
     private static final String URL = "jdbc:sqlite:database/userInfo.db";
 
+    //constructor
     public dbConnection() {
 
-        //try to connect, print success, if not print error msg + stack trace
+        //try to connect, if working print success, if not print error msg & stack trace
         try (Connection connection = DriverManager.getConnection(URL)) {
             if (connection != null) {
                 System.out.println("dbconnect success");
