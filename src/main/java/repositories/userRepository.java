@@ -94,6 +94,9 @@ public class userRepository {
             pStatement.setInt(1, givenUserID);
 
             pStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 }
