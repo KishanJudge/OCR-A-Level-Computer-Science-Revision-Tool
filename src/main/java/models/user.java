@@ -12,6 +12,18 @@ public class user {
         hashedPasscode = givenHashedPasscode;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getHashedPasscode() {
+        return hashedPasscode;
+    }
+    
     public void setUserID(int givenUserID) {
         userID = givenUserID;
     }

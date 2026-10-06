@@ -85,13 +85,9 @@ public class userRepository {
 
     public user getUser(
         int givenUserID) throws SQLException {
-<<<<<<< HEAD
 
         user fetchedUser = null;
 
-=======
-        //SQL - select all user information
->>>>>>> 9c59a53027c33b7f3dd1612d423903aca5af82df
         String SQL = """
                 SELECT * FROM users
                 WHERE user_id = ?
@@ -101,7 +97,6 @@ public class userRepository {
         try (Connection connection = DriverManager.getConnection(URL); 
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
 
-<<<<<<< HEAD
             pStatement.setInt(1, givenUserID);
             ResultSet rs = pStatement.executeQuery();
 
@@ -115,12 +110,6 @@ public class userRepository {
             }
 
             return fetchedUser;
-=======
-            pStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println(e.getMessage());
->>>>>>> 9c59a53027c33b7f3dd1612d423903aca5af82df
         }
     }
 }

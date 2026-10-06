@@ -16,10 +16,9 @@ public class userService {
         - insert user into db
     */
 
-    public returnMessage messageReturner(String givenMessage, boolean givenResult) {
-
-        
-    }
+   public void messageReturner(String givenMessage, boolean givenResult) {
+    System.out.println(givenResult + ":" + givenMessage);
+   }
     private userRepository userRepo = new userRepository();
 
     public returnMessage checkUsername(String givenUsername) {
@@ -115,9 +114,14 @@ public class userService {
     public user getUser(int givenUserID) {
 
         try {
-            userRepo.getUser(int givenUserID) {
-
-            }
+            user currentUser = userRepo.getUser(givenUserID);
+            messageReturner("successfully retrieved user information", true);
+            return currentUser;
+        } catch (SQLException e) {
+            messageReturner("failed to retrieve user", false);
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return null;
         }
     } 
 
