@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import models.user;
 import models.returnMessage;
 import repositories.userRepository;
 public class userService {
@@ -14,6 +15,11 @@ public class userService {
         - hash the password
         - insert user into db
     */
+
+    public returnMessage messageReturner(String givenMessage, boolean givenResult) {
+
+        
+    }
     private userRepository userRepo = new userRepository();
 
     public returnMessage checkUsername(String givenUsername) {
@@ -106,6 +112,15 @@ public class userService {
         }
     }
     
+    public user getUser(int givenUserID) {
+
+        try {
+            userRepo.getUser(int givenUserID) {
+
+            }
+        }
+    } 
+
     public returnMessage checkGivenPasscode(String givenTypedPasscode) {
         /*
         passcode rules:

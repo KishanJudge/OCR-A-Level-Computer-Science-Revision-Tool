@@ -2,8 +2,11 @@ package repositories;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+
+import models.user;
 
 public class userRepository {
 
@@ -75,8 +78,11 @@ public class userRepository {
         }
     }
 
-    public void getUser(
+    public user getUser(
         int givenUserID) throws SQLException {
+
+        user fetchedUser = null;
+
         String SQL = """
                 SELECT * FROM users
                 WHERE user_id = ?
@@ -84,9 +90,20 @@ public class userRepository {
         
         try (Connection connection = DriverManager.getConnection(URL); 
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
-            pStatement.setInt(1, givenUserID);
 
-            pStatement.executeQuery();
+            pStatement.setInt(1, givenUserID);
+            ResultSet rs = pStatement.executeQuery();
+
+            while (rs.next()) {
+
+                fetchedUser = new user(
+                    rs.getInt("user_id"),
+                    rs.getString("username"),
+                    rs.getString("hashed_passcode")
+                );
+            }
+
+            return fetchedUser;
         }
     }
 }
