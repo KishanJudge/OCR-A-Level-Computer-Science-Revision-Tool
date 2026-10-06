@@ -14,13 +14,14 @@ public class userRepository {
 
     public void addNewUser(
         String givenUsername, String givenHashedPasscode ) throws SQLException {
-            //Insert SQL statement
+        
+        //SQL - insert a new user into the users table
         String SQL = """
                 INSERT INTO users (username, hashed_passcode, is_active)
                 VALUES (?, ?, ?)
                 """;
 
-        //connect to database
+        //connect to database & prepare statement, set all values equal to passed in information
         try (Connection connection = DriverManager.getConnection(URL);
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
                 pStatement.setString(1, givenUsername);
@@ -37,14 +38,16 @@ public class userRepository {
     public void updateUser(
         String givenUsername, String givenHashedPasscode, 
         int givenIsActive, int givenUserID) throws SQLException {
-        //Update SQL statement
+        
+        //SQL - edit specified user's information with new information
         String SQL = """
                 UPDATE users 
                 SET (username, hashed_passcode, is_active)
                 VALUES (?, ?, ?)
                 WHERE user_id == ?
                 """;
-        //connect to database
+        
+        //connect to database & prepare statement
         try (Connection connection = DriverManager.getConnection(URL); 
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
             pStatement.setString(1, givenUsername);
@@ -61,12 +64,14 @@ public class userRepository {
 
     public void deleteUser(
         int givenUserID) throws SQLException {
+        
             //delete sql statement
             String SQL = """
                     DELETE FROM users
                     WHERE user_id == ?
                     """;
-
+        
+        //connect to database & prepare statement
         try (Connection connection = DriverManager.getConnection(URL);
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
             pStatement.setInt(1, givenUserID);
@@ -80,17 +85,23 @@ public class userRepository {
 
     public user getUser(
         int givenUserID) throws SQLException {
+<<<<<<< HEAD
 
         user fetchedUser = null;
 
+=======
+        //SQL - select all user information
+>>>>>>> 9c59a53027c33b7f3dd1612d423903aca5af82df
         String SQL = """
                 SELECT * FROM users
                 WHERE user_id = ?
                 """;
         
+        //connect to database & prepare statement
         try (Connection connection = DriverManager.getConnection(URL); 
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
 
+<<<<<<< HEAD
             pStatement.setInt(1, givenUserID);
             ResultSet rs = pStatement.executeQuery();
 
@@ -104,6 +115,12 @@ public class userRepository {
             }
 
             return fetchedUser;
+=======
+            pStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+>>>>>>> 9c59a53027c33b7f3dd1612d423903aca5af82df
         }
     }
 }
