@@ -62,8 +62,7 @@ public class userRepository {
         }
     }
 
-    public void deleteUser(
-        int givenUserID) throws SQLException {
+    public void deleteUser(int givenUserID) throws SQLException {
         
             //delete sql statement
             String SQL = """
@@ -90,7 +89,7 @@ public class userRepository {
 
         String SQL = """
                 SELECT * FROM users
-                WHERE user_id = ?
+                WHERE username = ?
                 """;
         
         //connect to database & prepare statement
@@ -110,6 +109,42 @@ public class userRepository {
             }
 
             return fetchedUser;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return null;
         }
     }
+
+    public user getUsersByUsername(String givenUsername) throws SQLException {
+
+        user fetchedUser = null;
+
+        String SQL = """
+                SELECT * FROM users
+                WHERE username = ?
+                """;
+
+        try (Connection connection = DriverManager.getConnection(URL); 
+        PreparedStatement pStatement = connection.prepareCall(SQL)) {
+            pStatement.setString(1, givenUsername);
+            ResultSet rs = pStatement.executeQuery();
+
+            while (rs.next()) {
+
+                fetchedUser = new user(
+                    rs.getInt("user_id"),
+                    rs.getString("username"),
+                    rs.getString("hashed_passcode")
+                );
+            }
+
+            return fetchedUser;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return null;
+        }
+
+    } 
 }

@@ -5,6 +5,11 @@ public class returnMessage {
     String message;
     boolean result;
 
+    public returnMessage(String givenMessage, boolean givenResult) {
+        message = givenMessage;
+        result = givenResult;
+    }
+
     private String getMessage() {
         return message;
     }

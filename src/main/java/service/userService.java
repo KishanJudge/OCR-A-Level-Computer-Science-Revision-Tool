@@ -3,6 +3,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import models.user;
 import models.returnMessage;
@@ -16,9 +18,7 @@ public class userService {
         - insert user into db
     */
 
-   public void messageReturner(String givenMessage, boolean givenResult) {
-    System.out.println(givenResult + ":" + givenMessage);
-   }
+
     private userRepository userRepo = new userRepository();
 
     public returnMessage checkUsername(String givenUsername) {
@@ -28,46 +28,40 @@ public class userService {
             illegal chars: £$"%^&*+={}[];:/<>\|`¬
             legal chars: -_()#@'!?.
         */
-        returnMessage returnMessage = new returnMessage();
+
+
         String[] illegalChars = {"£", "$", "%", "^", "&", "*", "+", "=", "{", "}", "[", "]", ";", ":", "/", "<", ">", "|", "`", "¬"};
 
         // '\' caused an error: find a fix, for now exclude it from the illegal chars list
 
+        try {
+            user fetchedUser = userRepo.getUsersByUsername(givenUsername)
+        }
+
         if (givenUsername.length() < 1 || givenUsername.length() > 53) {
-            returnMessage.setMessage("username must be between 1 and 50 Characters");
-            returnMessage.setResult(false);
-            return returnMessage;
+            return (new returnMessage("username must be between 1 and 53 characters", false));
         } 
         else {
             for (int i = 0; i < illegalChars.length; i++) {
                 if (givenUsername.contains(illegalChars[i])) {
-                    returnMessage.setMessage("given username contains invalid characters");
-                    returnMessage.setResult(false);
-                    return returnMessage;
+                    return (new returnMessage("given username contains invalid characters", false));
                 }
             }
         }
 
-        returnMessage.setMessage("valid username entered");
-        returnMessage.setResult(true);
-        return returnMessage;
+        return new returnMessage("valid username entered", true);
     }
 
     public returnMessage insertUser(String givenUsername, String givenHashedPasscode) {
-   
-        returnMessage returnMessage = new returnMessage();
+
 
         try {
             userRepo.addNewUser(givenUsername, givenHashedPasscode);
-            returnMessage.setMessage("user successfully added");
-            returnMessage.setResult(true);
-            return returnMessage;
+            return (new returnMessage("user successfuly added", true));
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
-            returnMessage.setMessage("error adding user");
-            returnMessage.setResult(false);
-            return returnMessage;
+            return (new returnMessage("error adding user", false));
         }
 
     }
@@ -75,19 +69,14 @@ public class userService {
     public returnMessage editUser(int givenUserID, String givenUsername, 
         String givenHashedPasscode, int givenIsActive) {
         
-        returnMessage returnMessage = new returnMessage();
 
         try {
             userRepo.updateUser(givenUsername, givenHashedPasscode, givenIsActive, givenUserID);
-            returnMessage.setMessage("user information successfully updated");
-            returnMessage.setResult(true);
-            return returnMessage;
+            return (new returnMessage("user information successfully updated", true));
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
-            returnMessage.setMessage("user update failed");
-            returnMessage.setResult(false);
-            return returnMessage;
+            return (new returnMessage("user information update failed", false));
         }
 
 
@@ -95,28 +84,24 @@ public class userService {
     
     public returnMessage deleteUser(int givenUserID) {
 
-        returnMessage returnMessage = new returnMessage();
-
         try {
             userRepo.deleteUser(givenUserID);
-            returnMessage.setMessage("user successfully deleted");
-            returnMessage.setResult(true);
-            return returnMessage;
+            return (new returnMessage("user successfully deleted", true));
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
-            returnMessage.setMessage("failed to delete user");
-            returnMessage.setResult(false);
-            return returnMessage;
+            return (new returnMessage("error deleting user from table", false));
         }
     }
     
-    public user getUser(int givenUserID) {
+    public List<Object> getUser(int givenUserID) {
 
+        List<Object> returnMult = new ArrayList<>();
         try {
             user currentUser = userRepo.getUser(givenUserID);
-            messageReturner("successfully retrieved user information", true);
-            return currentUser;
+            returnMult.add(currentUser);
+            returnMult.add(new returnMessage("successfully retrieved user information", true));
+            return returnMult;
         } catch (SQLException e) {
             messageReturner("failed to retrieve user", false);
             e.printStackTrace();
