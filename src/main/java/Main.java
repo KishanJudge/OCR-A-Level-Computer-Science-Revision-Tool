@@ -37,7 +37,7 @@ public class Main extends Application {
                 passcode123£passcode123£passcode123£passcode123£passcode123£pass123£
                 """).getResult()); //5
         System.out.println(service.checkGivenPasscode("passcode£").getResult()); //6
-        System.out.println(service.checkGivenPasscode("123£123£123£").getResult()); //7
+        System.out.println(service.checkGivenPasscode("123£123£1")git.getResult()); //7
         System.out.println(service.checkGivenPasscode("passcode1234").getResult()); //8
     }
 
