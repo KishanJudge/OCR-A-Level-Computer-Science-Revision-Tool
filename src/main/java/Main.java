@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import dbHandling.dbConnection;
+import service.userService;
 
 import java.sql.SQLException;
 
@@ -24,6 +25,20 @@ public class Main extends Application {
         dbConnection dbconnection = new dbConnection();
         dbSetup dbsetup = new dbSetup();
         launch(args);
+
+        userService service = new userService();
+        System.out.println(service.checkGivenPasscode("passcode123£").getResult()); //1
+        System.out.println(service.checkGivenPasscode("pass123£").getResult()); //2
+        System.out.println(service.checkGivenPasscode(""" 
+                passcode123£passcode123£passcode123£passcode123£passcode123£pass
+                """).getResult()); //3
+        System.out.println(service.checkGivenPasscode("").getResult()); //4
+        System.out.println(service.checkGivenPasscode("""
+                passcode123£passcode123£passcode123£passcode123£passcode123£pass123£
+                """).getResult()); //5
+        System.out.println(service.checkGivenPasscode("passcode£").getResult()); //6
+        System.out.println(service.checkGivenPasscode("123£123£123£").getResult()); //7
+        System.out.println(service.checkGivenPasscode("passcode1234").getResult()); //8
     }
 
 

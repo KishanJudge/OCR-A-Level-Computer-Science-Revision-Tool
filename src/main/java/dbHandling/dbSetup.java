@@ -68,7 +68,7 @@ public class dbSetup {
                 CREATE TABLE IF NOT EXISTS answer_options (
                 question_id INTEGER,
                 answer_option_index INTEGER,
-                answer_option TEXT NOT NULL
+                answer_option TEXT NOT NULL,
                 FOREIGN KEY (question_id) REFERENCES question_bank (question_id)
                 )
                 """;

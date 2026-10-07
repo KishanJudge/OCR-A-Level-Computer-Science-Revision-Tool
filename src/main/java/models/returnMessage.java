@@ -2,15 +2,15 @@ package models;
 
 public class returnMessage {
     
-    String message;
-    boolean result;
+    private String message;
+    private boolean result;
 
     public returnMessage(String givenMessage, boolean givenResult) {
         message = givenMessage;
         result = givenResult;
     }
 
-    private String getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -18,7 +18,7 @@ public class returnMessage {
         message = givenMessage;
     }
 
-    private boolean getResult() {
+    public boolean getResult() {
         return result;
     }
 

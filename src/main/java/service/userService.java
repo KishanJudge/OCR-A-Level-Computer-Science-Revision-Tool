@@ -34,9 +34,11 @@ public class userService {
 
         // '\' caused an error: find a fix, for now exclude it from the illegal chars list
 
+        /*
         try {
             user fetchedUser = userRepo.getUsersByUsername(givenUsername)
         }
+        */
 
         if (givenUsername.length() < 1 || givenUsername.length() > 53) {
             return (new returnMessage("username must be between 1 and 53 characters", false));
@@ -103,7 +105,6 @@ public class userService {
             returnMult.add(new returnMessage("successfully retrieved user information", true));
             return returnMult;
         } catch (SQLException e) {
-            messageReturner("failed to retrieve user", false);
             e.printStackTrace();
             System.err.println(e.getMessage());
             return null;
@@ -118,14 +119,11 @@ public class userService {
             - must contain nums, letters, and special chars
         */
 
-        returnMessage returnMessage = new returnMessage();
         int validCheck = 0;
 
         //check passcode length
         if (givenTypedPasscode.length() < 8 || givenTypedPasscode.length() > 64) {
-            returnMessage.setMessage("passcode must be between 8 and 64 chars");
-            returnMessage.setResult(false);
-            return returnMessage;
+            return (new returnMessage("password must be between 8 and 64 chars", false));
         }
 
         //check contains special chars, letters, and digits. there is a probably a way to make this more efficient
@@ -150,14 +148,10 @@ public class userService {
         }
         
         if (validCheck != 3) {
-            returnMessage.setMessage("password must contain digits, letters, and special characters");
-            returnMessage.setResult(false);
-            return returnMessage;
+            return (new returnMessage("password must contain digits, letters, and special characters", false));
         }
 
-        returnMessage.setMessage("given passcode is valid");
-        returnMessage.setResult(true);
-        return returnMessage;
+        return (new returnMessage("given password is valid", true));
     }
 
     //hashing the passcode given by the user
