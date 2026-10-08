@@ -21,7 +21,7 @@ public class userService {
 
     private userRepository userRepo = new userRepository();
 
-    public returnMessage checkUsername(String givenUsername) {
+    public returnMessage checkGivenUsername(String givenUsername) {
         /*
             min chars: 1
             max chars: 53
@@ -34,11 +34,20 @@ public class userService {
 
         // '\' caused an error: find a fix, for now exclude it from the illegal chars list
 
-        /*
+        
         try {
-            user fetchedUser = userRepo.getUsersByUsername(givenUsername)
+
+            if ((userRepo.getUsersByUsername(givenUsername) == null)) {
+                return (new returnMessage("duplicate username exists", false));
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return (new returnMessage("error fetching users", false));
         }
-        */
+        
 
         if (givenUsername.length() < 1 || givenUsername.length() > 53) {
             return (new returnMessage("username must be between 1 and 53 characters", false));
@@ -100,8 +109,8 @@ public class userService {
 
         List<Object> returnMult = new ArrayList<>();
         try {
-            user currentUser = userRepo.getUser(givenUserID);
-            returnMult.add(currentUser);
+            user fetchedUser = userRepo.getUser(givenUserID);
+            returnMult.add(fetchedUser);
             returnMult.add(new returnMessage("successfully retrieved user information", true));
             return returnMult;
         } catch (SQLException e) {
@@ -110,6 +119,7 @@ public class userService {
             return null;
         }
     } 
+
 
     public returnMessage checkGivenPasscode(String givenTypedPasscode) {
         /*

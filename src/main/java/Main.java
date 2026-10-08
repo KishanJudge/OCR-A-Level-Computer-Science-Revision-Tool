@@ -39,6 +39,20 @@ public class Main extends Application {
         System.out.println(service.checkGivenPasscode("passcode£").getResult()); //6
         System.out.println(service.checkGivenPasscode("123£123£1").getResult()); //7
         System.out.println(service.checkGivenPasscode("passcode1234").getResult()); //8
+
+        System.out.println("-------------------------------------------------------------");
+
+        System.out.println(service.checkGivenUsername("user123").getResult()); //1
+        System.out.println(service.checkGivenUsername("p").getResult()); //2
+        System.out.println(service.checkGivenUsername("""
+                user123user123user123user123user123user123user123use
+                """).getResult()); //3
+        System.out.println(service.checkGivenUsername("user123").getResult()); //4
+        System.out.println(service.checkGivenUsername("user123").getResult()); //5
+        System.out.println(service.checkGivenUsername("user123").getResult()); //6
+        System.out.println(service.checkGivenUsername("user123").getResult()); //7
+        System.out.println(service.checkGivenUsername("user123").getResult()); //8
+
     }
 
 
