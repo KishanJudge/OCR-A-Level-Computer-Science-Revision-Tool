@@ -169,6 +169,8 @@ public class userService {
      Consequently, we should use a new instance for every thread.'
     */
 
+    //hashes the user's inputted passcode after is has passed all validation checks
+    //must throw noSuchAlgorithmException because 
     public static String hashPasscode(String givenPasscode) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] digestedPasscode = md.digest(givenPasscode.getBytes(StandardCharsets.UTF_8));

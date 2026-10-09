@@ -70,3 +70,4 @@
 #Iteration 2:
 - Now I need to start work on the controller and the FXML
 - "https://docs.oracle.com/javase/8/javafx/fxml-tutorial/custom_control.htm"
+- "https://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html"
