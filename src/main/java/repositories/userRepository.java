@@ -17,7 +17,7 @@ public class userRepository {
         
         //SQL - insert a new user into the users table
         String SQL = """
-                INSERT INTO users (username, hashed_passcode, is_active)
+                INSERT INTO users (username, hashed_passcode)
                 VALUES (?, ?, ?)
                 """;
 
@@ -26,7 +26,6 @@ public class userRepository {
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
                 pStatement.setString(1, givenUsername);
                 pStatement.setString(2, givenHashedPasscode);
-                pStatement.setBoolean(3, true);
                 //execute SQL statement
                 pStatement.executeUpdate();
         } catch (SQLException e) {
@@ -36,13 +35,12 @@ public class userRepository {
     }
 
     public void updateUser(
-        String givenUsername, String givenHashedPasscode, 
-        int givenIsActive, int givenUserID) throws SQLException {
+        String givenUsername, String givenHashedPasscode, int givenUserID) throws SQLException {
         
         //SQL - edit specified user's information with new information
         String SQL = """
                 UPDATE users 
-                SET (username, hashed_passcode, is_active)
+                SET (username, hashed_passcode)
                 VALUES (?, ?, ?)
                 WHERE user_id == ?
                 """;
@@ -52,8 +50,7 @@ public class userRepository {
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
             pStatement.setString(1, givenUsername);
             pStatement.setString(2, givenHashedPasscode);
-            pStatement.setInt(3, givenIsActive);
-            pStatement.setInt(4, givenUserID);
+            pStatement.setInt(3, givenUserID);
             //execute SQL
             pStatement.executeUpdate();
         } catch (SQLException e) {

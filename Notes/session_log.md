@@ -66,3 +66,7 @@
 - after programming that, I also realised the inefficiency of my code to return a returnMessage, so decided to rewrite it to be contained within a single line, vastly saving space and writing in the future.
 - Now to check that another user of the same username does not exist whilst validating a username. this is needed so we do not accidentally fetch the incorrect user when retrieving a user's information from the database. This presents some confusion, as now won't both the username and userID be unique identifiers for the user. 
 - As we need to retrieve any users with the same inputted username during signup we need to write another getUsers method to get users with by username. 
+
+#Iteration 2:
+- Now I need to start work on the controller and the FXML
+- "https://docs.oracle.com/javase/8/javafx/fxml-tutorial/custom_control.htm"

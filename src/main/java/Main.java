@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import dbHandling.dbConnection;
 import service.userService;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class Main extends Application {
@@ -47,11 +48,53 @@ public class Main extends Application {
         System.out.println(service.checkGivenUsername("""
                 user123user123user123user123user123user123user123use
                 """).getResult()); //3
-        System.out.println(service.checkGivenUsername("user123").getResult()); //4
-        System.out.println(service.checkGivenUsername("user123").getResult()); //5
-        System.out.println(service.checkGivenUsername("user123").getResult()); //6
+        System.out.println(service.checkGivenUsername("").getResult()); //4
+        System.out.println(service.checkGivenUsername("user123user123user123user123user123user123user123user12").getResult()); //5
+        System.out.println(service.checkGivenUsername("user£$").getResult()); //6
         System.out.println(service.checkGivenUsername("user123").getResult()); //7
-        System.out.println(service.checkGivenUsername("user123").getResult()); //8
+        System.out.println(service.checkGivenUsername("kishan").getResult()); //8
+
+        System.out.println("-------------------------------------------------------------");
+
+        try {
+            System.out.println(service.hashPasscode("passcode"));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+
+                try {
+            System.out.println(service.hashPasscode("passcode"));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        } //1
+
+                try {
+            System.out.println(service.hashPasscode("kishancode"));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+
+                try {
+            System.out.println(service.hashPasscode("codekishan"));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        } //2
+
+
+        //3 - check if the hashed SHA-256 is valid and correctly hashed
+    
+        //need to confirm whether or not we need to test invalid username entries into the database.
+        //surely nothing will happen? maybe we need to test for SQL injection
+        System.out.println(service.insertUser("keegan", "HASHPLACEHOLDER").getResult());
+        System.out.println(service.insertUser("kishan", "HASHPLACEHOLDER").getResult());
+
+        System.out.println("-------------------------------------------------------------");
+
+        
 
     }
 

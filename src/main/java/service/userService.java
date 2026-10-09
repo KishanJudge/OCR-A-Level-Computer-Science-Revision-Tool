@@ -78,11 +78,11 @@ public class userService {
     }
 
     public returnMessage editUser(int givenUserID, String givenUsername, 
-        String givenHashedPasscode, int givenIsActive) {
+        String givenHashedPasscode) {
         
 
         try {
-            userRepo.updateUser(givenUsername, givenHashedPasscode, givenIsActive, givenUserID);
+            userRepo.updateUser(givenUsername, givenHashedPasscode, givenUserID);
             return (new returnMessage("user information successfully updated", true));
         } catch (SQLException e) {
             e.printStackTrace();
