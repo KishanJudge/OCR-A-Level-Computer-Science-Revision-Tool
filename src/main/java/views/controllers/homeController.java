@@ -1,12 +1,20 @@
 package views.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 public class homeController {
 
-    @FXML
-    private Text applicationTitle;
+    @FXML private Text applicationTitle;
+
+    //quizButton
+    //algorithmButton
+    //login/signup button
+
+    @FXML private Button quizButton;
+    @FXML private Button algorithmButton;
+    @FXML private Button login;
 
     @FXML
     private void initialize() {
@@ -33,6 +41,7 @@ public class homeController {
     signup needs to take a username and passcode, it should run checks for username and passcode, return errors and continually 
     prompt the user to input correct information, and if all is correct, continue them to the home page.
     
+
     */
     
 }
