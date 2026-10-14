@@ -19,3 +19,11 @@ quiz background setup - all the Qs wi explanations
 
 stage 5:
 Question selection algorithm + weakness targeting
+
+
+1.1) User accounts 
+1.2) Home Page 
+2.1) Question Bank  
+2.2) MCQ Panel, Topic Selection, Q Explanations 
+2.3) Proficiency Display + Weakness Targeting 
+3) Algorithm Visualiser 
