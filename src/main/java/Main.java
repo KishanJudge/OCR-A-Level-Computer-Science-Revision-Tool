@@ -46,7 +46,7 @@ public class Main extends Application {
         System.out.println(Arrays.toString(passResults));
         */
 
-        String[] results = new String[8];
+        String[] results = new String[7];
         results[0] = String.valueOf(service.checkGivenUsername("user123").getResult());
         results[1] = String.valueOf(service.checkGivenUsername("p").getResult());
         results[2] = String.valueOf(service.checkGivenUsername("""
@@ -58,7 +58,6 @@ public class Main extends Application {
                 """).getResult());
         results[5] = String.valueOf(service.checkGivenUsername("user£$").getResult());
         results[6] = String.valueOf(service.checkGivenUsername("user123").getResult());
-        results[7] = String.valueOf(service.checkGivenUsername("kishan").getResult());
         System.out.println(Arrays.toString(results));
 
         /*
