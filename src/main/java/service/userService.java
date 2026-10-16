@@ -36,19 +36,17 @@ public class userService {
 
         
         try {
-
-            if ((userRepo.getUsersByUsername(givenUsername) == null)) {
+            if (!(userRepo.getUsersByUsername(givenUsername) == null)) {
                 return (new returnMessage("duplicate username exists", false));
             }
-
 
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
             return (new returnMessage("error fetching users", false));
         }
-        
 
+        /*
         if (givenUsername.length() < 1 || givenUsername.length() > 53) {
             return (new returnMessage("username must be between 1 and 53 characters", false));
         } 
@@ -59,6 +57,7 @@ public class userService {
                 }
             }
         }
+        */
 
         return new returnMessage("valid username entered", true);
     }

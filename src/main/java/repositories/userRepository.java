@@ -123,7 +123,7 @@ public class userRepository {
                 """;
 
         try (Connection connection = DriverManager.getConnection(URL); 
-        PreparedStatement pStatement = connection.prepareCall(SQL)) {
+        PreparedStatement pStatement = connection.prepareStatement(SQL)) {
             pStatement.setString(1, givenUsername);
             ResultSet rs = pStatement.executeQuery();
 
