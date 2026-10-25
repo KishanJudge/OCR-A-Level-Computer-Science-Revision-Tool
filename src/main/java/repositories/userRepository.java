@@ -18,7 +18,7 @@ public class userRepository {
         //SQL - insert a new user into the users table
         String SQL = """
                 INSERT INTO users (username, hashed_passcode)
-                VALUES (?, ?, ?)
+                VALUES (?, ?)
                 """;
 
         //connect to database & prepare statement, set all values equal to passed in information

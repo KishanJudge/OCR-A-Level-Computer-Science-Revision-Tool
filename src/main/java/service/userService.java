@@ -160,6 +160,8 @@ public class userService {
             return (new returnMessage("password must contain digits, letters, and special characters", false));
         }
 
+
+
         return (new returnMessage("given password is valid", true));
     }
 
@@ -180,7 +182,8 @@ public class userService {
             if (hex.length() == 1) {
                 hexPasscode.append('0');
             }
-            hexPasscode.append('0');
+            //hexPasscode.append('0');
+            hexPasscode.append(hex);
         }
 
         return hexPasscode.toString();

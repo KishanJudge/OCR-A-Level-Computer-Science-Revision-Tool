@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import dbHandling.dbConnection;
 import service.userService;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Arrays;
 
@@ -28,24 +29,7 @@ public class Main extends Application {
         launch(args);
 
         userService service = new userService();
-
         /*
-        String[] passResults = new String[8];
-        passResults[0] = String.valueOf(service.checkGivenPasscode("passcode123£").getResult());
-        passResults[1] = String.valueOf(service.checkGivenPasscode("pass123£").getResult());
-        passResults[2] = String.valueOf(service.checkGivenPasscode("""
-        passcode123£passcode123£passcode123£passcode123£passcode123£pass
-        """).getResult());
-        passResults[3] = String.valueOf(service.checkGivenPasscode("").getResult());
-        passResults[4] = String.valueOf(service.checkGivenPasscode("""
-        passcode123£passcode123£passcode123£passcode123£passcode123£pass123£
-        """).getResult());
-        passResults[5] = String.valueOf(service.checkGivenPasscode("passcode£").getResult());
-        passResults[6] = String.valueOf(service.checkGivenPasscode("123£123£1").getResult());
-        passResults[7] = String.valueOf(service.checkGivenPasscode("passcode1234").getResult());
-        System.out.println(Arrays.toString(passResults));
-        */
-
         String[] results = new String[7];
         results[0] = String.valueOf(service.checkGivenUsername("user123").getResult());
         results[1] = String.valueOf(service.checkGivenUsername("p").getResult());
@@ -57,8 +41,27 @@ public class Main extends Application {
                 user123user123user123user123user123user123user123user12
                 """).getResult());
         results[5] = String.valueOf(service.checkGivenUsername("user£$").getResult());
-        results[6] = String.valueOf(service.checkGivenUsername("user123").getResult());
+        results[6] = String.valueOf(service.checkGivenUsername("kishan").getResult());
         System.out.println(Arrays.toString(results));
+        */
+
+        /*
+        String[] passResults = new String[8];
+        passResults[0] = String.valueOf(service.checkGivenPasscode("passcode123£").getResult());
+        passResults[1] = String.valueOf(service.checkGivenPasscode("pass123£").getResult());
+        passResults[2] = String.valueOf(service.checkGivenPasscode("""
+        passcode123£passcode123£passcode123£passcode123£passcode123£pass\
+        """).getResult());
+        passResults[3] = String.valueOf(service.checkGivenPasscode("").getResult());
+        passResults[4] = String.valueOf(service.checkGivenPasscode("""
+        passcode123£passcode123£passcode123£passcode123£passcode123£pass123£\
+        """).getResult());
+        passResults[5] = String.valueOf(service.checkGivenPasscode("passcode£").getResult());
+        passResults[6] = String.valueOf(service.checkGivenPasscode("123£123£1").getResult());
+        passResults[7] = String.valueOf(service.checkGivenPasscode("passcode1234").getResult());
+        System.out.println(Arrays.toString(passResults));
+        */
+
 
         /*
         try {
@@ -68,21 +71,21 @@ public class Main extends Application {
             System.err.println(e.getMessage());
         }
 
-                try {
+        try {
             System.out.println(service.hashPasscode("passcode"));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
         } //1
 
-                try {
+        try {
             System.out.println(service.hashPasscode("kishancode"));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
         }
 
-                try {
+        try {
             System.out.println(service.hashPasscode("codekishan"));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -91,15 +94,12 @@ public class Main extends Application {
         */
 
         //3 - check if the hashed SHA-256 is valid and correctly hashed
-    
-        //need to confirm whether or not we need to test invalid username entries into the database.
-        //surely nothing will happen? maybe we need to test for SQL injection?
-        /*
+
+
         System.out.println(service.insertUser("keegan", "HASHPLACEHOLDER").getResult());
         System.out.println(service.insertUser("kishan", "HASHPLACEHOLDER").getResult());
 
-        System.out.println("-------------------------------------------------------------");
-        */
+
         
 
     }
