@@ -8,27 +8,32 @@
 
 <AnchorPane prefHeight="298.0" prefWidth="298.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.signInController">
    <children>
-      <Text fill="#c0d0fc" fontSmoothingType="LCD" layoutX="122.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fx:id="pageTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="122.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <TextField layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" text="username:">
+      <TextField fx:id="enterUsername" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" text="username:">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <TextField layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" text="password:">
+      <TextField fx:id="enterPassword" layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" text="password:">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <Button fx:id="signUpSwitch" layoutX="114.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="13.0" prefWidth="64.0" text="Sign-Up" />
-      <Button layoutX="122.0" layoutY="186.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="48.0" text="Log-In">
+      <Button fx:id="signUpSwitch" layoutX="114.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchPage" prefHeight="13.0" prefWidth="64.0" text="Sign-Up" />
+      <Button fx:id="confirmButton" layoutX="122.0" layoutY="186.0" mnemonicParsing="false" onAction="#confirmPressed" prefHeight="22.0" prefWidth="48.0" text="Log-In">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </Button>
       <Text layoutX="103.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="errorMessage" fill="WHITE" layoutX="63.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="173.0">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

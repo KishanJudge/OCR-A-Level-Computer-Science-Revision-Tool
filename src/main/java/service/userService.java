@@ -117,7 +117,9 @@ public class userService {
             System.err.println(e.getMessage());
             return null;
         }
-    } 
+    }
+
+    public
 
 
     public returnMessage checkGivenPasscode(String givenTypedPasscode) {
