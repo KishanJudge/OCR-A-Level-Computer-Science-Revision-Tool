@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.user;
+import models.User;
 import models.returnMessage;
 import repositories.userRepository;
 public class userService {
@@ -15,7 +15,7 @@ public class userService {
         - set username
         - set password
         - hash the password
-        - insert user into db
+        - insert User into db
     */
 
 
@@ -67,11 +67,11 @@ public class userService {
 
         try {
             userRepo.addNewUser(givenUsername, givenHashedPasscode);
-            return (new returnMessage("user successfuly added", true));
+            return (new returnMessage("User successfuly added", true));
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
-            return (new returnMessage("error adding user", false));
+            return (new returnMessage("error adding User", false));
         }
 
     }
@@ -82,11 +82,11 @@ public class userService {
 
         try {
             userRepo.updateUser(givenUsername, givenHashedPasscode, givenUserID);
-            return (new returnMessage("user information successfully updated", true));
+            return (new returnMessage("User information successfully updated", true));
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
-            return (new returnMessage("user information update failed", false));
+            return (new returnMessage("User information update failed", false));
         }
 
 
@@ -96,11 +96,11 @@ public class userService {
 
         try {
             userRepo.deleteUser(givenUserID);
-            return (new returnMessage("user successfully deleted", true));
+            return (new returnMessage("User successfully deleted", true));
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
-            return (new returnMessage("error deleting user from table", false));
+            return (new returnMessage("error deleting User from table", false));
         }
     }
     
@@ -108,9 +108,9 @@ public class userService {
 
         List<Object> returnMult = new ArrayList<>();
         try {
-            user fetchedUser = userRepo.getUser(givenUserID);
+            User fetchedUser = userRepo.getUser(givenUserID);
             returnMult.add(fetchedUser);
-            returnMult.add(new returnMessage("successfully retrieved user information", true));
+            returnMult.add(new returnMessage("successfully retrieved User information", true));
             return returnMult;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -119,7 +119,20 @@ public class userService {
         }
     }
 
-    public
+    public List<Object> checkUser(String givenUsername, String givenHashedPasscode) {
+
+        List<Object> returnMult = new ArrayList<>();
+        try {
+            int userID = userRepo.checkUser(givenUsername, givenHashedPasscode);
+            returnMult.add(userID);
+            returnMult.add(new returnMessage("successfully retrieved a matching User", true));
+            return returnMult;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return null;
+        }
+    }
 
 
     public returnMessage checkGivenPasscode(String givenTypedPasscode) {
@@ -167,12 +180,12 @@ public class userService {
         return (new returnMessage("given password is valid", true));
     }
 
-    //hashing the passcode given by the user
+    //hashing the passcode given by the User
     /*'We need to be aware that the MessageDigest is not thread-safe. 
      Consequently, we should use a new instance for every thread.'
     */
 
-    //hashes the user's inputted passcode after is has passed all validation checks
+    //hashes the User's inputted passcode after is has passed all validation checks
     //must throw noSuchAlgorithmException because 
     public static String hashPasscode(String givenPasscode) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");

@@ -4,11 +4,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import models.returnMessage;
+import models.Session;
+import models.User;
 import service.userService;
+import views.guiManager;
+
+import java.util.List;
 
 public class signInController {
 
+
+    Session session = new Session();
+    private guiManager gui;
 
     private userService userService = new userService();
     @FXML Button signUpSwitch;
@@ -18,6 +25,10 @@ public class signInController {
     @FXML TextField enterPassword;
     @FXML Text errorMessage;
     Boolean pageState = true; // 1 = login, 0 = sign-up
+
+    public void initialise(guiManager gui) {
+        this.gui = gui;
+    }
 
     public void switchPage() {
         pageTitle.setText("Sign Up");
@@ -31,10 +42,51 @@ public class signInController {
     public void logIn() {
 
         //validate username
-        enterUsername.getText();
-        enterPassword.getText();
 
-        userService.getUserByUsername();
+        List<Object> userCheck = userService.checkUser(enterUsername.getText(), enterPassword.getText());
+
+        int userID = -1;
+        boolean pass = false;
+        User user = null;
+
+        //check if there is a user with the matching credentials
+        try {
+            userID = (int) userCheck.getFirst();
+            pass = true;
+        } catch (Exception e) {
+            errorMessage.setText("username or password is incorrect - try again");
+            enterUsername.clear();
+            enterPassword.clear();
+        }
+
+        //if there is fetch that user's information
+        if (pass) {
+            try {
+                user = (User) userService.getUser(userID).getFirst();
+
+            } catch (Exception e) {
+                errorMessage.setText("error #1a - try again");
+                enterUsername.clear();
+                enterPassword.clear();
+            }
+
+        }
+
+
+        try {
+            gui.loadHomePage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            System.out.println("error loading home page");
+        }
+        session.setUser(user);
+
+        //change scene, and pass the user into the session state
+
+
+
+
 
 
     }
@@ -42,9 +94,7 @@ public class signInController {
     public void signUp() {
 
     }
-    public void initialise() {
 
-    }
 
     /*
         returnMessage userReturnedM = userService.checkGivenUsername(enterUsername.getText());

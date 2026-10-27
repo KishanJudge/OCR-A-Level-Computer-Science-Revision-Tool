@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
-import models.user;
+import models.User;
 
 public class userRepository {
 
@@ -15,7 +15,7 @@ public class userRepository {
     public void addNewUser(
         String givenUsername, String givenHashedPasscode ) throws SQLException {
         
-        //SQL - insert a new user into the users table
+        //SQL - insert a new User into the users table
         String SQL = """
                 INSERT INTO users (username, hashed_passcode)
                 VALUES (?, ?)
@@ -37,7 +37,7 @@ public class userRepository {
     public void updateUser(
         String givenUsername, String givenHashedPasscode, int givenUserID) throws SQLException {
         
-        //SQL - edit specified user's information with new information
+        //SQL - edit specified User's information with new information
         String SQL = """
                 UPDATE users 
                 SET (username, hashed_passcode)
@@ -79,10 +79,10 @@ public class userRepository {
         }
     }
 
-    public user getUser(
+    public User getUser(
         int givenUserID) throws SQLException {
 
-        user fetchedUser = null;
+        User fetchedUser = null;
 
         String SQL = """
                 SELECT * FROM users
@@ -98,7 +98,7 @@ public class userRepository {
 
             while (rs.next()) {
 
-                fetchedUser = new user(
+                fetchedUser = new User(
                     rs.getInt("user_id"),
                     rs.getString("username"),
                     rs.getString("hashed_passcode")
@@ -113,9 +113,9 @@ public class userRepository {
         }
     }
 
-    public user getUsersByUsername(String givenUsername) throws SQLException {
+    public User getUsersByUsername(String givenUsername) throws SQLException {
 
-        user fetchedUser = null;
+        User fetchedUser = null;
 
         String SQL = """
                 SELECT * FROM users
@@ -129,7 +129,7 @@ public class userRepository {
 
             while (rs.next()) {
 
-                fetchedUser = new user(
+                fetchedUser = new User(
                     rs.getInt("user_id"),
                     rs.getString("username"),
                     rs.getString("hashed_passcode")
@@ -143,5 +143,30 @@ public class userRepository {
             return null;
         }
 
-    } 
+    }
+
+    public int checkUser(String givenUsername, String givenHashedPasscode) throws SQLException {
+
+        int userID = -1;
+
+        String SQL = """
+                SELECT user_id 
+                FROM users
+                WHERE username = ? AND hashed_passcode = ?
+                """;
+
+        try (Connection connection = DriverManager.getConnection(URL);
+        PreparedStatement pStatement = connection.prepareStatement(SQL)) {
+            pStatement.setString(1, givenUsername);
+            pStatement.setString(2, givenHashedPasscode);
+
+            ResultSet rs = pStatement.executeQuery();
+
+            while (rs.next()) {
+                userID = rs.getInt("user_id");
+            }
+
+            return userID;
+        }
+    }
 }

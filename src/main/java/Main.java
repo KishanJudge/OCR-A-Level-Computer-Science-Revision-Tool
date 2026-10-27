@@ -6,27 +6,21 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import dbHandling.dbConnection;
 import service.userService;
+import views.guiManager;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Arrays;
 
-public class Main extends Application {
+public class Main {
 
-    @Override
-    public void start(Stage homeStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Home.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        homeStage.setScene(scene);
-        homeStage.show();
-
-    }
 
     public static void main (String[] args) throws SQLException {
+
         dbConnection dbconnection = new dbConnection();
         dbSetup dbsetup = new dbSetup();
-        launch(args);
+        Application.launch(guiManager.class, args);
+
 
         userService service = new userService();
         /*

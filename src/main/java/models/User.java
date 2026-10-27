@@ -1,12 +1,12 @@
 package models;
 
-public class user {
+public class User {
 
     private int userID;
     private String username;
     private String hashedPasscode;
 
-    public user (int givenuserID, String givenUsername, String givenHashedPasscode) {
+    public User(int givenuserID, String givenUsername, String givenHashedPasscode) {
         userID = givenuserID;
         username = givenUsername;
         hashedPasscode = givenHashedPasscode;

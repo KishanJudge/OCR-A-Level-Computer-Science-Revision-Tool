@@ -8,17 +8,17 @@
 
 <AnchorPane prefHeight="298.0" prefWidth="298.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.signInController">
    <children>
-      <Text fx:id="pageTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="122.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fx:id="pageTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="119.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="enterUsername" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" text="username:">
+      <TextField fx:id="enterUsername" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" promptText="username:">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="enterPassword" layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" text="password:">
+      <TextField fx:id="enterPassword" layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" promptText="password:">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
