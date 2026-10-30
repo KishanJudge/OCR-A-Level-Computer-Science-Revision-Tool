@@ -23,7 +23,7 @@
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <Button fx:id="signUpSwitch" layoutX="114.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchPage" prefHeight="13.0" prefWidth="64.0" text="Sign-Up" />
+      <Button fx:id="switchButton" layoutX="114.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchPage" prefHeight="13.0" prefWidth="64.0" text="Sign-Up" />
       <Button fx:id="confirmButton" layoutX="122.0" layoutY="186.0" mnemonicParsing="false" onAction="#confirmPressed" prefHeight="22.0" prefWidth="48.0" text="Log-In">
          <font>
             <Font name="Arial" size="10.0" />
