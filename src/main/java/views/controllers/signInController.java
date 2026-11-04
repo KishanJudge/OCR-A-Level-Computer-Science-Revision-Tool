@@ -15,7 +15,7 @@ import java.util.List;
 public class signInController {
 
 
-    Session session = new Session();
+    private Session session;
     private guiManager gui;
 
     private userService userService = new userService();
@@ -27,8 +27,9 @@ public class signInController {
     @FXML Text errorMessage;
     Boolean pageState = true; // 1 = login, 0 = sign-up
 
-    public void initialise(guiManager gui) {
+    public void initialise(guiManager gui, Session session) {
         this.gui = gui;
+        this.session = session;
     }
 
     public void switchPage() {

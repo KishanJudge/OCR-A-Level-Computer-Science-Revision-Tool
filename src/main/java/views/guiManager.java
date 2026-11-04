@@ -5,11 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.Session;
 import views.controllers.homeController;
 import views.controllers.signInController;
 
 public class guiManager extends Application {
 
+    private Session session = new Session();
     private Stage mainStage;
 
     @Override
@@ -24,7 +26,7 @@ public class guiManager extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/signInPage.fxml"));
         Parent root = loader.load();
         signInController controller = loader.getController();
-        controller.initialise(this);
+        controller.initialise(this, session);
         Scene scene = new Scene(root);
         mainStage.setScene(scene);
     }
