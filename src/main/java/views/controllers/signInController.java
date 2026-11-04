@@ -32,11 +32,22 @@ public class signInController {
     }
 
     public void switchPage() {
-        errorMessage.setText("");
-        pageTitle.setText("Sign Up");
-        confirmButton.setText("Sign-Up");
-        switchButton.setText("Login");
-        pageState = false;
+
+        if (pageState) {
+            errorMessage.setText("");
+            pageTitle.setText("Sign Up");
+            confirmButton.setText("Sign-Up");
+            switchButton.setText("Login");
+            pageState = false;                
+        }
+        else {
+            errorMessage.setText("");
+            pageTitle.setText("Log In");
+            confirmButton.setText("Login");
+            switchButton.setText("Sign-Up");
+            pageState = true;
+        }
+
 
     }
 
@@ -44,6 +55,7 @@ public class signInController {
         if (pageState) { logIn(); }
         else { signUp(); }
     }
+    
     public void logIn() {
 
         //validate username
