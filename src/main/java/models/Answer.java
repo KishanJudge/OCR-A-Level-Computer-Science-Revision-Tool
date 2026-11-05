@@ -12,5 +12,29 @@ public class Answer {
         answerOption = givenAnswerOption;
     }
 
+    public int getQuestionID() {
+        return questionID;
+    }
+
+    public void setQuestionID(int givenQuestionID) {
+        questionID = givenQuestionID;
+    }
+
+    public int getAnswerOptionIndex() {
+        return answerOptionIndex;
+    }
+
+    public void setAnswerOptionIndex(int givenAnswerOptionIndex) {
+        answerOptionIndex = givenAnswerOptionIndex;
+    }
+
+    public String getAnswerOption() {
+        return answerOption;
+    }
+
+    public void setAnswerOption(String givenAnswerOption) {
+        answerOption = givenAnswerOption;
+    }
+
     
 }
