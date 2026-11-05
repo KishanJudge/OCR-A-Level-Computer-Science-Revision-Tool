@@ -10,6 +10,7 @@ import models.returnMessage;
 import service.userService;
 import views.guiManager;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class signInController {
@@ -50,6 +51,13 @@ public class signInController {
         }
 
 
+    }
+
+    public void switchSuccessfulSignUp() {
+        pageTitle.setText("Log In");
+        confirmButton.setText("Login");
+        switchButton.setText("Sign-Up");
+        pageState = true;
     }
 
     public void confirmPressed() {
@@ -131,6 +139,19 @@ public class signInController {
         if (!(userReturnedM.getResult())) {
             errorMessage.setText(userReturnedM.getMessage());
         }
+
+        if (passReturnedM.getResult() && userReturnedM.getResult()) {
+            try {
+                userService.insertUser(enterUsername.getText(), enterPassword.getText());
+                errorMessage.setText("Account creation successful, proceed to login");
+                switchSuccessfulSignUp();
+            } catch (Exception e) {
+
+            }
+        }
+
+
+
 
 
 
