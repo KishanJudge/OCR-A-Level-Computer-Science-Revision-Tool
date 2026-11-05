@@ -3,6 +3,7 @@ package views.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import models.Session;
 import models.User;
@@ -26,13 +27,25 @@ public class signInController {
     @FXML TextField enterUsername;
     @FXML TextField enterPassword;
     @FXML Text errorMessage;
-    Boolean pageState = true; // 1 = login, 0 = sign-up
+    @FXML Button lightDarkSwitch;
+    @FXML AnchorPane background;
+
+    Boolean pageState = true; // true = login, false = sign-up
+    Boolean pageColour = true; //true = dark, false = light
 
     public void initialise(guiManager gui, Session session) {
         this.gui = gui;
         this.session = session;
     }
 
+    public void switchLightDark() {
+        if (pageColour) {
+            background.setStyle("-fx-background-color: #f4f4f4");
+        }
+        else {
+
+        }
+    }
     public void switchPage() {
 
         if (pageState) {

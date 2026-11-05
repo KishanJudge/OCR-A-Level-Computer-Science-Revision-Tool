@@ -2,29 +2,34 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="298.0" prefWidth="298.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.signInController">
+<AnchorPane fx:id="background" prefHeight="298.0" prefWidth="298.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.signInController">
    <children>
-      <Text fx:id="pageTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="119.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fx:id="pageTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="119.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="enterUsername" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" promptText="username:">
+      <TextField fx:id="enterUsername" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" promptText="username:" style="-fx-background-color: transparent; -fx-text-fill: #e8e8e8; -fx-prompt-text-fill: #e8e8e84d; -fx-border-color: #c0d0fc4d;">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="enterPassword" layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" promptText="password:">
+      <TextField fx:id="enterPassword" layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" promptText="password:" style="-fx-background-color: transparent; -fx-text-fill: #e8e8e8; -fx-prompt-text-fill: #e8e8e84d; -fx-border-color: #c0d0fc4d;">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <Button fx:id="switchButton" layoutX="114.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchPage" prefHeight="13.0" prefWidth="64.0" text="Sign-Up" />
-      <Button fx:id="confirmButton" layoutX="122.0" layoutY="186.0" mnemonicParsing="false" onAction="#confirmPressed" prefHeight="22.0" prefWidth="48.0" text="Log-In">
+      <Button fx:id="switchButton" layoutX="94.0" layoutY="260.0" mnemonicParsing="false" onAction="#switchPage" prefHeight="24.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #c0d0fc4d;" text="Switch to Sign-Up" textFill="#cfd4e3">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font></Button>
+      <Button fx:id="confirmButton" layoutX="116.0" layoutY="186.0" mnemonicParsing="false" onAction="#confirmPressed" prefHeight="22.0" prefWidth="54.0" style="-fx-background-color: #333333; -fx-border-color: #4a4a4a;" text="Log-In" textFill="#e8e8e8" textOverrun="CLIP">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
@@ -35,5 +40,14 @@
             <Font name="Arial" size="10.0" />
          </font>
       </Text>
+      <Button fx:id="lightDarkSwitch" layoutX="243.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchLightDark" prefHeight="33.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@smoon_white.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
