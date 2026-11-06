@@ -94,7 +94,6 @@ public class signInController {
             if (userID > 0) {
                 pass = true;
             }
-
         } catch (Exception e) {
             errorMessage.setText("username or password is incorrect - try again");
             enterUsername.clear();
@@ -109,7 +108,7 @@ public class signInController {
                 enterUsername.clear();
                 enterPassword.clear();
             } catch (Exception e) {
-                errorMessage.setText("error #1a - try again");
+                errorMessage.setText("error fetching user information");
                 enterUsername.clear();
                 enterPassword.clear();
             }
@@ -132,12 +131,6 @@ public class signInController {
         session.setUser(user);
 
         //change scene, and pass the user into the session state
-
-
-
-
-
-
     }
 
     public void signUp() {
@@ -159,15 +152,11 @@ public class signInController {
                 errorMessage.setText("Account creation successful, proceed to login");
                 switchSuccessfulSignUp();
             } catch (Exception e) {
-
+                errorMessage.setText("error inserting new user");
+                enterUsername.clear();
+                enterPassword.clear();
             }
         }
-
-
-
-
-
-
     }
 
 
