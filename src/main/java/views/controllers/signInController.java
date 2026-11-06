@@ -1,6 +1,7 @@
 package views.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -39,12 +40,23 @@ public class signInController {
     }
 
     public void switchLightDark() {
+
+        Scene scene = background.getScene();
+        scene.getStylesheets().clear();
+
         if (pageColour) {
-            background.setStyle("-fx-background-color: #f4f4f4");
+            pageColour = false;
+            System.out.println("switched to light");
+            scene.getStylesheets().add(getClass().getResource("/lightMode.css").toExternalForm());
         }
         else {
-
+            pageColour = true;
+            System.out.println("switched to dark");
+            scene.getStylesheets().add(getClass().getResource("/darkMode.css").toExternalForm());
         }
+
+
+
     }
     public void switchPage() {
 

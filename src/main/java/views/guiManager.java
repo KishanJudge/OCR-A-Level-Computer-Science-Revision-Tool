@@ -22,6 +22,7 @@ public class guiManager extends Application {
 
     }
 
+
     public void loadSignInPage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/signInPage.fxml"));
         Parent root = loader.load();
