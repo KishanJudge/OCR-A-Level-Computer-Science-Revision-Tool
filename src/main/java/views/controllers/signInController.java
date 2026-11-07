@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
 import models.Session;
 import models.User;
 import models.returnMessage;
@@ -21,6 +23,7 @@ public class signInController {
     private Session session;
     private guiManager gui;
 
+
     private userService userService = new userService();
     @FXML Button switchButton;
     @FXML Text pageTitle;
@@ -30,6 +33,7 @@ public class signInController {
     @FXML Text errorMessage;
     @FXML Button lightDarkSwitch;
     @FXML AnchorPane background;
+    @FXML ImageView toggle;
 
     Boolean pageState = true; // true = login, false = sign-up
     Boolean pageColour = true; //true = dark, false = light
@@ -46,13 +50,14 @@ public class signInController {
 
         if (pageColour) {
             pageColour = false;
-            System.out.println("switched to light");
-            scene.getStylesheets().add(getClass().getResource("/lightMode.css").toExternalForm());
+            toggle.setImage(new Image(getClass().getResource("/smoon_black.png").toExternalForm()));
+            scene.getStylesheets().setAll(getClass().getResource("/lightMode.css").toExternalForm());
+
         }
         else {
             pageColour = true;
-            System.out.println("switched to dark");
-            scene.getStylesheets().add(getClass().getResource("/darkMode.css").toExternalForm());
+            toggle.setImage(new Image(getClass().getResource("/smoon_white.png").toExternalForm()));
+            scene.getStylesheets().setAll(getClass().getResource("/darkMode.css").toExternalForm());
         }
 
 
