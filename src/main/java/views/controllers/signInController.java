@@ -65,15 +65,17 @@ public class signInController {
     }
     public void switchPage() {
 
+        errorMessage.setText("");
+        enterUsername.clear();
+        enterPassword.clear();
+
         if (pageState) {
-            errorMessage.setText("");
             pageTitle.setText("Sign Up");
             confirmButton.setText("Sign-Up");
             switchButton.setText("Login");
             pageState = false;                
         }
         else {
-            errorMessage.setText("");
             pageTitle.setText("Log In");
             confirmButton.setText("Login");
             switchButton.setText("Sign-Up");

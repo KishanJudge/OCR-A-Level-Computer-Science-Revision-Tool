@@ -10,26 +10,26 @@
 
 <AnchorPane fx:id="background" prefHeight="298.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.signInController">
    <children>
-      <Text id="title" fx:id="pageTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="119.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fx:id="pageTitle" fontSmoothingType="LCD" layoutX="-6.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Login" textAlignment="CENTER" wrappingWidth="298.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <TextField id="usernameTextField" fx:id="enterUsername" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" promptText="username:">
+      <TextField fx:id="enterUsername" layoutX="63.0" layoutY="109.0" prefHeight="25.0" prefWidth="173.0" promptText="username:" styleClass="textfield">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <TextField id="passwordTextField" fx:id="enterPassword" layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" promptText="password:">
+      <TextField fx:id="enterPassword" layoutX="63.0" layoutY="143.0" prefHeight="25.0" prefWidth="173.0" promptText="password:" styleClass="textfield">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <Button id="switchPage" fx:id="switchButton" layoutX="94.0" layoutY="260.0" mnemonicParsing="false" onAction="#switchPage" prefHeight="24.0" prefWidth="99.0" text="Switch to Sign-Up" textFill="#cfd4e3">
+      <Button fx:id="switchButton" layoutX="94.0" layoutY="260.0" mnemonicParsing="false" onAction="#switchPage" prefHeight="24.0" prefWidth="99.0" styleClass="secondaryButton" text="Switch to Sign-Up">
          <font>
             <Font name="Arial" size="10.0" />
          </font></Button>
-      <Button id="confirmButton" fx:id="confirmButton" layoutX="116.0" layoutY="186.0" mnemonicParsing="false" onAction="#confirmPressed" prefHeight="22.0" prefWidth="54.0" text="Log-In" textFill="#e8e8e8" textOverrun="CLIP">
+      <Button fx:id="confirmButton" layoutX="116.0" layoutY="186.0" mnemonicParsing="false" onAction="#confirmPressed" prefHeight="22.0" prefWidth="54.0" styleClass="primaryButton" text="Log-In" textOverrun="CLIP">
          <font>
             <Font name="Arial" size="10.0" />
          </font>

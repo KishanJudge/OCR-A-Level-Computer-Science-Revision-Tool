@@ -7,22 +7,22 @@
 
 <AnchorPane prefHeight="343.0" prefWidth="563.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.homeController">
     <children>
-          <Text fx:id="applicationTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="46.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OCR A-Level Computer Science Revision Tool" wrappingWidth="508.087890625" AnchorPane.bottomAnchor="263.337890625" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="55.083984375">
+          <Text fx:id="applicationTitle" fill="#c0d0fc" fontSmoothingType="LCD" layoutX="46.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="OCR A-Level Computer Science Revision Tool" wrappingWidth="508.087890625" AnchorPane.bottomAnchor="263.337890625" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="55.083984375">
               <font>
                   <Font name="Arial Bold" size="22.0" />
               </font>
           </Text>
-      <Button layoutX="126.0" layoutY="131.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="174.0" style="-fx-background-color: #333333; -fx-border-color: #4a4a4a;" text="Multiple Choice Quiz" textAlignment="CENTER" textFill="#e8e8e8">
+      <Button layoutX="126.0" layoutY="131.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="174.0" style="-fx-background-color: #333333; -fx-border-color: #4a4a4a;" styleClass="primaryButton" text="Multiple Choice Quiz" textAlignment="CENTER" textFill="#e8e8e8">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="300.0" layoutY="131.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="174.0" style="-fx-background-color: #333333; -fx-border-color: #4a4a4a;" text="Algorithm Visualiser" textAlignment="CENTER" textFill="#e8e8e8">
+      <Button layoutX="300.0" layoutY="131.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="174.0" style="-fx-background-color: #333333; -fx-border-color: #4a4a4a;" styleClass="primaryButton" text="Algorithm Visualiser" textAlignment="CENTER" textFill="#e8e8e8">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="474.0" layoutY="294.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: #c0d0fc4d;" text="Manage Account" textFill="#cfd4e3">
+      <Button layoutX="474.0" layoutY="294.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: #c0d0fc4d;" styleClass="secondaryButton" text="Manage Account" textFill="#cfd4e3">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
