@@ -1,7 +1,11 @@
 package views.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import views.guiManager;
 
@@ -18,8 +22,28 @@ public class homeController {
     @FXML private Button quizButton;
     @FXML private Button algorithmButton;
     @FXML private Button login;
+    @FXML AnchorPane background;
+    @FXML ImageView toggle;
 
-    @FXML
+    Boolean pageColour = true;
+
+    public void switchLightDark() {
+
+        Scene scene = background.getScene();
+        scene.getStylesheets().clear();
+
+        if (pageColour) {
+            pageColour = false;
+            toggle.setImage(new Image(getClass().getResource("/smoon_black.png").toExternalForm()));
+            scene.getStylesheets().setAll(getClass().getResource("/lightMode.css").toExternalForm());
+
+        } else {
+            pageColour = true;
+            toggle.setImage(new Image(getClass().getResource("/smoon_white.png").toExternalForm()));
+            scene.getStylesheets().setAll(getClass().getResource("/darkMode.css").toExternalForm());
+        }
+    }
+
     public void initialise(guiManager gui) {
         this.gui = gui;
     }

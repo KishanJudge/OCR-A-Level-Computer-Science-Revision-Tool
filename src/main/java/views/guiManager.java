@@ -39,6 +39,7 @@ public class guiManager extends Application {
         homeController controller = loader.getController();
         controller.initialise(this);
         Scene scene = new Scene(root);
+        scene.getStylesheets().setAll(getClass().getResource("/darkMode.css").toExternalForm());
         mainStage.setScene(scene);
 
     }
