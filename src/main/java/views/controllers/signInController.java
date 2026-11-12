@@ -109,16 +109,7 @@ public class signInController {
         User user = null;
 
         //check if there is a user with the matching credentials
-        try {
-            userID = (int) userCheck.getFirst();
-            if (userID > 0) {
-                pass = true;
-            }
-        } catch (Exception e) {
-            errorMessage.setText("username or password is incorrect - try again");
-            enterUsername.clear();
-            enterPassword.clear();
-        }
+
 
         //if there is fetch that user's information
         if (pass) {

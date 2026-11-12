@@ -53,12 +53,14 @@ public class guiManager extends Application {
         Parent root = loader.load();
         manageAccountController controller = loader.getController();
         controller.initialise(this, session, pageColour);
-        mainStage.initOwner(owner);
-        mainStage.initModality(Modality.WINDOW_MODAL);
         Scene scene = new Scene(root);
         controller.switchLightDark();
         //scene.getStylesheets().setAll(getClass().getResource("/darkMode.css").toExternalForm());
-        mainStage.setScene(scene);
+        Stage popupStage = new Stage();
+        popupStage.initOwner(owner);
+        popupStage.initModality(Modality.WINDOW_MODAL);
+        popupStage.setScene(scene);
+        popupStage.show();
 
     }
 }
