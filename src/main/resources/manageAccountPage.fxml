@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="background" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.manageAccountController">
+<AnchorPane fx:id="background" prefHeight="245.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.manageAccountController">
    <children>
       <Text layoutX="1.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Account" textAlignment="CENTER" wrappingWidth="298.0">
          <font>
@@ -32,17 +32,17 @@
       </TextField>
       <Button layoutX="14.0" layoutY="138.0" mnemonicParsing="false" styleClass="secondaryButton" text="Confirm">
          <font>
-            <Font name="Arial" size="11.0" />
+            <Font name="Arial" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="201.0" mnemonicParsing="false" styleClass="secondaryButton" text="Delete User Account">
+      <Button layoutX="11.0" layoutY="193.0" mnemonicParsing="false" styleClass="secondaryButton" text="Delete User Account">
          <font>
-            <Font name="Arial" size="11.0" />
+            <Font name="Arial" size="10.0" />
          </font>
       </Button>
-      <Button layoutX="171.0" layoutY="201.0" mnemonicParsing="false" styleClass="secondaryButton" text="Log Out of Account">
+      <Button layoutX="166.0" layoutY="193.0" mnemonicParsing="false" styleClass="secondaryButton" text="Log Out of Account">
          <font>
-            <Font name="Arial" size="11.0" />
+            <Font name="Arial" size="10.0" />
          </font>
       </Button>
       <Button fx:id="lightDarkSwitch" layoutX="245.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchLightDark" prefHeight="33.0" prefWidth="30.0" style="-fx-background-color: transparent;">
@@ -50,6 +50,15 @@
             <ImageView fx:id="toggle" fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@smoon_white.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" prefHeight="33.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="back" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@whiteBackArrow.png" />
                </image>
             </ImageView>
          </graphic>

@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import models.Session;
 import views.guiManager;
 
 public class homeController {
@@ -19,24 +21,30 @@ public class homeController {
     //algorithmButton
     //login/signup button
 
+
     @FXML private Button quizButton;
     @FXML private Button algorithmButton;
     @FXML private Button login;
     @FXML private Button manageAccountButton;
-    @FXML AnchorPane background;
-    @FXML ImageView toggle;
+    @FXML private AnchorPane background;
+    @FXML private ImageView toggle;
 
-    Boolean pageColour = true;
+    Boolean pageColour;
+    private Session session;
 
-    public void initialise(guiManager gui) {
+    public void initialise(guiManager gui, Session session, boolean pageColour) {
         this.gui = gui;
+        this.session = session;
+        this.pageColour = pageColour;
     }
 
     public void switchManageAccountPage() {
 
+        Scene scene = background.getScene();
+
         System.out.println("running");
         try {
-            gui.loadManageAccountPage();
+            gui.loadManageAccountPage(!pageColour, (Stage) scene.getWindow());
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getMessage());

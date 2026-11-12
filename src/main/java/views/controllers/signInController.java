@@ -25,22 +25,23 @@ public class signInController {
 
 
     private userService userService = new userService();
-    @FXML Button switchButton;
-    @FXML Text pageTitle;
-    @FXML Button confirmButton;
-    @FXML TextField enterUsername;
-    @FXML TextField enterPassword;
-    @FXML Text errorMessage;
-    @FXML Button lightDarkSwitch;
-    @FXML AnchorPane background;
-    @FXML ImageView toggle;
+    @FXML private Button switchButton;
+    @FXML private Text pageTitle;
+    @FXML private Button confirmButton;
+    @FXML private TextField enterUsername;
+    @FXML private TextField enterPassword;
+    @FXML private Text errorMessage;
+    @FXML private Button lightDarkSwitch;
+    @FXML private AnchorPane background;
+    @FXML private ImageView toggle;
 
     Boolean pageState = true; // true = login, false = sign-up
-    Boolean pageColour = true; //true = dark, false = light
+    Boolean pageColour; //true = dark, false = light
 
-    public void initialise(guiManager gui, Session session) {
+    public void initialise(guiManager gui, Session session, boolean pageColour) {
         this.gui = gui;
         this.session = session;
+        this.pageColour = pageColour;
     }
 
     public void switchLightDark() {
@@ -132,7 +133,7 @@ public class signInController {
                 enterPassword.clear();
             }
             try {
-                gui.loadHomePage();
+                gui.loadHomePage(!pageColour);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.err.println(e.getMessage());

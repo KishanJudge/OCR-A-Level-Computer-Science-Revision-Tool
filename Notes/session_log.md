@@ -71,3 +71,9 @@
 - Now I need to start work on the controller and the FXML
 - "https://docs.oracle.com/javase/8/javafx/fxml-tutorial/custom_control.htm"
 - "https://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html"
+
+-unsession logged, but notes are as follows:
+- added page colour to initialise function so it is received from previous function
+  call switchLightDark to set the pageColour
+  //didn't understand for a minute here
+  pass the opposite value of the pageColour so the pageColour is set to be the same as the previous page
