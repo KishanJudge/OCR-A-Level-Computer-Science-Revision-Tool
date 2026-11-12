@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import models.Session;
 import views.controllers.homeController;
+import views.controllers.manageAccountController;
 import views.controllers.signInController;
 
 public class guiManager extends Application {
@@ -42,5 +43,15 @@ public class guiManager extends Application {
         scene.getStylesheets().setAll(getClass().getResource("/darkMode.css").toExternalForm());
         mainStage.setScene(scene);
 
+    }
+
+    public void loadManageAccountPage() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/manageAccountPage.fxml"));
+        Parent root = loader.load();
+        manageAccountController controller = loader.getController();
+        controller.initialise(this);
+        Scene scene = new Scene(root);
+        scene.getStylesheets().setAll(getClass().getResource("/darkMode.css").toExternalForm());
+        mainStage.setScene(scene);
     }
 }

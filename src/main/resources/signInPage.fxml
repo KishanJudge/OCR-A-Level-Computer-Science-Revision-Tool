@@ -34,8 +34,7 @@
             <Font name="Arial" size="10.0" />
          </font>
       </Button>
-      <Text layoutX="103.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="errorMessage" fill="WHITE" layoutX="63.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="173.0">
+      <Text fx:id="errorMessage" layoutX="63.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="CENTER" wrappingWidth="173.0">
          <font>
             <Font name="Arial" size="10.0" />
          </font>

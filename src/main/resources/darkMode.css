@@ -6,6 +6,10 @@
     -fx-fill: #c0d0fc;
 }
 
+.text {
+    -fx-fill: #ffffff;
+}
+
 .secondaryButton {
     -fx-background-color: transparent;
     -fx-border-color: #c0d0fc4d;

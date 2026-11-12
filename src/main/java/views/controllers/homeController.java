@@ -22,11 +22,27 @@ public class homeController {
     @FXML private Button quizButton;
     @FXML private Button algorithmButton;
     @FXML private Button login;
+    @FXML private Button manageAccountButton;
     @FXML AnchorPane background;
     @FXML ImageView toggle;
 
     Boolean pageColour = true;
 
+    public void initialise(guiManager gui) {
+        this.gui = gui;
+    }
+
+    public void switchManageAccountPage() {
+
+        System.out.println("running");
+        try {
+            gui.loadManageAccountPage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            System.out.println("error loading account management page");
+        }
+    }
     public void switchLightDark() {
 
         Scene scene = background.getScene();
@@ -44,9 +60,7 @@ public class homeController {
         }
     }
 
-    public void initialise(guiManager gui) {
-        this.gui = gui;
-    }
+
 
     //if a User is logged in, they are taken to the home page, if not they are taken to the signup / login page.
     //we need to detect this first before the User even logs in.

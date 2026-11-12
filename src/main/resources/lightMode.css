@@ -1,26 +1,60 @@
-.root {
-    -fx-background-color: #f4f4f4;
-}
+    .root {
+        -fx-background-color: #f4f4f4;
+    }
 
-.title {
-    -fx-fill: #2a4a9f;
-}
+    .title {
+        -fx-fill: #2a4a9f;
+    }
 
-.secondaryButton {
-    -fx-background-color: transparent;
-    -fx-border-color: #2a4a9f4d;
-    -fx-text-fill: #3d4a6b;
-}
+    .text {
+        -fx-fill: #000000;
+    }
 
-.primaryButton {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #c8c8c8;
-    -fx-text-fill: #222222;
-}
+    .secondaryButton {
+        -fx-background-color: transparent;
+        -fx-border-color: #2a4a9f4d;
+        -fx-text-fill: #3d4a6b;
+    }
 
-.textfield {
-    -fx-background-color: transparent;
-    -fx-text-fill: #222222;
-    -fx-prompt-text-fill: #2222224d;
-    -fx-border-color: #2a4a9f4d;
-}
+    .primaryButton {
+        -fx-background-color: #ffffff;
+        -fx-border-color: #c8c8c8;
+        -fx-text-fill: #222222;
+    }
+
+    .textfield {
+        -fx-background-color: transparent;
+        -fx-text-fill: #222222;
+        -fx-prompt-text-fill: #2222224d;
+        -fx-border-color: #2a4a9f4d;
+    }
+    .root {
+        -fx-background-color: #f4f4f4;
+    }
+
+    .title {
+        -fx-fill: #2a4a9f;
+    }
+
+    .text {
+        -fx-fill: #000000;
+    }
+
+    .secondaryButton {
+        -fx-background-color: transparent;
+        -fx-border-color: #2a4a9f4d;
+        -fx-text-fill: #3d4a6b;
+    }
+
+    .primaryButton {
+        -fx-background-color: #ffffff;
+        -fx-border-color: #c8c8c8;
+        -fx-text-fill: #222222;
+    }
+
+    .textfield {
+        -fx-background-color: transparent;
+        -fx-text-fill: #222222;
+        -fx-prompt-text-fill: #2222224d;
+        -fx-border-color: #2a4a9f4d;
+    }

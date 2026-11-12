@@ -2,47 +2,57 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<AnchorPane fx:id="background" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.controllers.manageAccountController">
    <children>
-      <Text layoutX="1.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" textAlignment="CENTER" wrappingWidth="298.0">
+      <Text layoutX="1.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Account" textAlignment="CENTER" wrappingWidth="298.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit User Details:">
+      <Text layoutX="14.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Edit User Details:">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Text>
-      <TextField layoutX="14.0" layoutY="106.0" prefHeight="17.0" prefWidth="129.0" promptText="new username:">
+      <TextField layoutX="14.0" layoutY="106.0" prefHeight="17.0" prefWidth="129.0" promptText="new username:" styleClass="textfield">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <TextField layoutX="151.0" layoutY="106.0" prefHeight="17.0" prefWidth="129.0" promptText="new password:">
+      <TextField layoutX="151.0" layoutY="106.0" prefHeight="17.0" prefWidth="129.0" promptText="new password:" styleClass="textfield">
          <font>
             <Font name="Arial" size="10.0" />
          </font>
       </TextField>
-      <Button layoutX="14.0" layoutY="138.0" mnemonicParsing="false" text="Confirm">
+      <Button layoutX="14.0" layoutY="138.0" mnemonicParsing="false" styleClass="secondaryButton" text="Confirm">
          <font>
             <Font name="Arial" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="201.0" mnemonicParsing="false" text="Delete User Account">
+      <Button layoutX="14.0" layoutY="201.0" mnemonicParsing="false" styleClass="secondaryButton" text="Delete User Account">
          <font>
             <Font name="Arial" size="11.0" />
          </font>
       </Button>
-      <Button layoutX="171.0" layoutY="201.0" mnemonicParsing="false" text="Log Out of Account">
+      <Button layoutX="171.0" layoutY="201.0" mnemonicParsing="false" styleClass="secondaryButton" text="Log Out of Account">
          <font>
             <Font name="Arial" size="11.0" />
          </font>
+      </Button>
+      <Button fx:id="lightDarkSwitch" layoutX="245.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchLightDark" prefHeight="33.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="toggle" fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@smoon_white.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
    </children>
 </AnchorPane>
