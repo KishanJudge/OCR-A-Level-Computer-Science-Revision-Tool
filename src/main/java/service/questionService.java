@@ -23,6 +23,16 @@ public class questionService {
         }
     }
 
+    public List<Question> fetchQuestionsFromTopic() {
+
+        try {
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+
     public List<Answer> getAnswers(int givenQuestionID) {
         
         try {

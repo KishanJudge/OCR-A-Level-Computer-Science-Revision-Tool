@@ -71,6 +71,24 @@ public class questionRepository {
         
     }
 
+    public void getQuestionsFromTopic(String givenTopic) {
+
+        List<Question> fetchedQuestions = new ArrayList<>();
+
+        String SQL = """
+        SELECT * FROM question_bank
+        WHERE question_topic = ?
+        """;
+
+        try (Connection connection = DriverManager.getConnection(URL);
+        PreparedStatement pStatement = connection.prepareStatement(SQL)) {
+            pStatement.setString(1, givenTopic);
+
+        } catch (SQLException e) {
+
+        }
+
+    }
 
     //fetch and return all 4 answers for the question
     public List<Answer> getAnswers(int givenQuestionID) throws SQLException {
