@@ -1,8 +1,14 @@
 package views.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import models.Session;
 import views.guiManager;
 
 public class homeController {
@@ -15,14 +21,54 @@ public class homeController {
     //algorithmButton
     //login/signup button
 
+
     @FXML private Button quizButton;
     @FXML private Button algorithmButton;
     @FXML private Button login;
+    @FXML private Button manageAccountButton;
+    @FXML private AnchorPane background;
+    @FXML private ImageView toggle;
 
-    @FXML
-    public void initialise(guiManager gui) {
+    Boolean pageColour;
+    private Session session;
+
+    public void initialise(guiManager gui, Session session, boolean pageColour) {
         this.gui = gui;
+        this.session = session;
+        this.pageColour = pageColour;
     }
+
+    public void switchManageAccountPage() {
+
+        Scene scene = background.getScene();
+
+        System.out.println("running");
+        try {
+            gui.loadManageAccountPage(!pageColour, (Stage) scene.getWindow());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            System.out.println("error loading account management page");
+        }
+    }
+    public void switchLightDark() {
+
+        Scene scene = background.getScene();
+        scene.getStylesheets().clear();
+
+        if (pageColour) {
+            pageColour = false;
+            toggle.setImage(new Image(getClass().getResource("/smoon_black.png").toExternalForm()));
+            scene.getStylesheets().setAll(getClass().getResource("/lightMode.css").toExternalForm());
+
+        } else {
+            pageColour = true;
+            toggle.setImage(new Image(getClass().getResource("/smoon_white.png").toExternalForm()));
+            scene.getStylesheets().setAll(getClass().getResource("/darkMode.css").toExternalForm());
+        }
+    }
+
+
 
     //if a User is logged in, they are taken to the home page, if not they are taken to the signup / login page.
     //we need to detect this first before the User even logs in.
