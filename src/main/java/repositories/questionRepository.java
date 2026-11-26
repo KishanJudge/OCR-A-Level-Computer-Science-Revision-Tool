@@ -71,7 +71,8 @@ public class questionRepository {
         
     }
 
-    public void getQuestionsFromTopic(String givenTopic) {
+    //method to return a list containing all of the questions from a given topic.
+    public List<Question> getQuestionsFromTopic(String givenTopic) throws SQLException {
 
         List<Question> fetchedQuestions = new ArrayList<>();
 
@@ -84,8 +85,24 @@ public class questionRepository {
         PreparedStatement pStatement = connection.prepareStatement(SQL)) {
             pStatement.setString(1, givenTopic);
 
-        } catch (SQLException e) {
+            ResultSet rs = pStatement.executeQuery();
 
+            while(rs.next())  {
+                fetchedQuestions.add(new Question(
+                    rs.getInt("question_id"),
+                    rs.getString("question_topic"),
+                    rs.getString("question"),
+                    rs.getInt("correct_answer_index"),
+                    rs.getString("feedback")
+                ));
+            }
+
+            return fetchedQuestions;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return null;
         }
 
     }

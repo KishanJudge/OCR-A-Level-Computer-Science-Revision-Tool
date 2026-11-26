@@ -1,11 +1,14 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import models.Question;
+import models.returnMessage;
 import models.Answer;
 import repositories.questionRepository;
+import repositories.userRepository;
 
 public class questionService {
     
@@ -23,13 +26,19 @@ public class questionService {
         }
     }
 
-    public List<Question> fetchQuestionsFromTopic() {
+    //need to do error handling wi returnMessage
+    public List<Object> fetchQuestionsFromTopic(String givenTopic) {
 
+        List<Object> returnMult = new ArrayList<>();
+        
         try {
-            
+            returnMult.add(questionRepo.getQuestionsFromTopic(givenTopic));
+            returnMult.add(new returnMessage("Questions successfully fetched", true));
+            return returnMult;
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
+            return null;
         }
     }
 
